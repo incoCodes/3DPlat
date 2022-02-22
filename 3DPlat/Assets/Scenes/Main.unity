@@ -474,6 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  jumpForce: 5
   rig: {fileID: 1038554383}
 --- !u!1 &1478243673
 GameObject:

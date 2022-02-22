@@ -5,7 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float moveSpeed;
+    public float jumpForce;
     public Rigidbody rig;
+    bool isGrounded;
     // Update is called once per frame
     void Update()
     {
@@ -17,6 +19,11 @@ public class Player : MonoBehaviour
         if (vel.x != 0 || vel.z != 0)
         {
             transform.forward = vel;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
        
     }
