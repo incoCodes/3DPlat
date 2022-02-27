@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class Player : MonoBehaviour
             isGrounded = false;
             rig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+
+        if (transform.position.y < -10) GameOver();
        
     }
 
@@ -39,5 +42,11 @@ public class Player : MonoBehaviour
             // we call the player grounded so that he can only have one jump at a time
             isGrounded = true;
         }
+
+    }
+
+    public void GameOver ()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
